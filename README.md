@@ -1,14 +1,4 @@
-In this project, let's build a **Nxt Trendz - Cart Features** by applying the concepts we have learned till now.
-
-### Refer to the video below:
-
-<br/>
-<div style="text-align: center;">
-  <video style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12);outline:none;" loop="true" autoplay="autoplay" controls="controls" muted>
-    <source src="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-output.mp4" type="video/mp4">
-  </video>
-</div>
-<br/>
+In this project, I build an E-commerce website platform clone (Nxt Trendz) similar to Amazon and Flipkart by applying concepts from the MERN stack framework.
 
 ### Design Files
 
@@ -174,10 +164,3 @@ Use these files to complete the implementation:
 - Roboto
 
 </details>
-
-> ### _Things to Keep in Mind_
->
-> - All components you implement should go in the `src/components` directory.
-> - Don't change the component folder names as those are the files being imported into the tests.
-> - **Do not remove the pre-filled code**
-> - Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
