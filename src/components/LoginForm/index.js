@@ -1,24 +1,15 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
-import Popup from 'reactjs-popup'
 
 import './index.css'
 
 class LoginForm extends Component {
   state = {
-    username: '',
-    password: '',
+    username: 'HariKumar',
+    password: 'harikumar@321',
     showSubmitError: false,
     errorMsg: '',
-  }
-
-  onChangeUsername = event => {
-    this.setState({username: event.target.value})
-  }
-
-  onChangePassword = event => {
-    this.setState({password: event.target.value})
   }
 
   onSubmitSuccess = jwtToken => {
@@ -36,7 +27,12 @@ class LoginForm extends Component {
 
   submitForm = async event => {
     event.preventDefault()
-    const {username, password} = this.state
+    let {username, password} = this.state
+
+    if (username.toLowerCase().trim(' ') === 'HariKumar'.toLocaleLowerCase())
+      username = 'rahul'
+    if (password === 'harikumar@321') password = 'rahul@2021'
+
     const userDetails = {username, password}
     const url = 'https://apis.ccbp.in/login'
     const options = {
@@ -50,6 +46,14 @@ class LoginForm extends Component {
     } else {
       this.onSubmitFailure(data.error_msg)
     }
+  }
+
+  onChangeUsername = event => {
+    this.setState({username: event.target.value})
+  }
+
+  onChangePassword = event => {
+    this.setState({password: event.target.value})
   }
 
   renderPasswordField = () => {
@@ -92,22 +96,6 @@ class LoginForm extends Component {
     )
   }
 
-  ReactPopUp = () => (
-    <div className="popup-container">
-      <Popup
-        trigger={
-          <button className="trigger-button" type="button">
-            Trigger
-          </button>
-        }
-      >
-        <div>
-          <p>React is a popular and widely used programming language</p>
-        </div>
-      </Popup>
-    </div>
-  )
-
   render() {
     const {showSubmitError, errorMsg} = this.state
     const jwtToken = Cookies.get('jwt_token')
@@ -140,15 +128,9 @@ class LoginForm extends Component {
             Login
           </button>
           <p className="login-note">
-            Hit the Login button to get the valid credential.
+            Login and explore with pre-filled credentials
           </p>
           {showSubmitError && <p className="error-message">*{errorMsg}</p>}
-          {showSubmitError && (
-            <p className="show-credential">Valid Username: rahul</p>
-          )}
-          {showSubmitError && (
-            <p className="show-credential">Valid Password: rahul@2021</p>
-          )}
         </form>
       </div>
     )
